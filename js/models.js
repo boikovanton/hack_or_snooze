@@ -19,13 +19,18 @@ class Story {
     this.url = url;
     this.username = username;
     this.createdAt = createdAt;
+    this.isFavorite = false; // Initialize as not favorite by default
   }
 
   /** Parses hostname out of URL and returns it. */
 
   getHostName() {
-    const url = new URL(this.url);
-    return url.hostname;
+    const urlObj = new URL(this.url);
+    return urlObj.hostname;
+  }
+
+  updateFavoriteStatus(isFavorite) {
+    this.isFavorite = isFavorite;
   }
 }
 

@@ -50,17 +50,27 @@ console.warn("HEY STUDENT: This program sends many debug messages to" +
 $(start);
 
 function generateStoryMarkup(story) {
-  // console.debug("generateStoryMarkup", story);
-
   const hostName = story.getHostName();
-  return $(`
-      <li id="${story.storyId}">
-        <a href="${story.url}" target="a_blank" class="story-link">
-          ${story.title}
-        </a>
-        <small class="story-hostname">(${hostName})</small>
-        <small class="story-author">by ${story.author}</small>
-        <small class="story-user">posted by ${story.username}</small>
-      </li>
-    `);
+  const $story = $(`
+    <li id="${story.storyId}" class="story-item">
+      <h3 class="story-title">${story.title}</h3>
+      <p class="story-author">by ${story.author}</p>
+      <p class="story-url"><a href="${story.url}" target="_blank">${hostName}</a></p>
+      <button class="favorite-button" data-story-id="${story.storyId}">Add to Favorites</button>
+      <button class="unfavorite-button hidden" data-story-id="${story.storyId}">Remove from Favorites</button>
+    </li>
+  `);
+
+  // Show favorite/unfavorite button based on user's favorites
+  if (currentUser) {
+    if (currentUser.isFavorite(story)) {
+      $story.find(".unfavorite-button").removeClass("hidden");
+      $story.find(".favorite-button").addClass("hidden");
+    } else {
+      $story.find(".favorite-button").removeClass("hidden");
+      $story.find(".unfavorite-button").addClass("hidden");
+    }
+  }
+
+  return $story;
 }

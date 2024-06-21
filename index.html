@@ -38,7 +38,17 @@
   <div id="stories-loading-msg">Loading&hellip;</div>
 
   <!-- List of all stories -->
-  <ol id="all-stories-list" class="stories-list"></ol>
+  <ol id="all-stories-list" class="stories-list">
+    <li class="story-item" data-story-id="story123">
+      <h3 class="story-title">Story Title</h3>
+      <p class="story-author">Author Name</p>
+      <p class="story-url"><a href="#">https://example.com</a></p>
+      <!-- Favorite and Unfavorite buttons -->
+      <button class="favorite-button" data-story-id="story123">Add to Favorites</button>
+      <button class="unfavorite-button hidden" data-story-id="story123">Remove from Favorites</button>
+    </li>
+    <!-- More story items... -->
+  </ol>
 
 </section>
 
