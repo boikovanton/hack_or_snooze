@@ -64,7 +64,42 @@
 
 <!-- Login and signup forms -->
 <section class="account-forms-container container">
-  <!-- existing login and signup forms here -->
+  <!-- Login form -->
+  <form action="#" id="login-form" class="account-form hidden" method="post">
+    <h4>Login</h4>
+    <div class="login-input">
+      <label for="login-username">username</label>
+      <input id="login-username" autocomplete="current-username">
+    </div>
+    <div class="login-input">
+      <label for="login-password">password</label>
+      <input id="login-password" type="password" autocomplete="current-password">
+    </div>
+    <button type="submit">login</button>
+    <hr>
+  </form>
+
+  <!-- Signup form -->
+  <form
+      action="#"
+      id="signup-form"
+      class="account-form hidden"
+      method="post">
+    <h4>Create Account</h4>
+    <div class="login-input">
+      <label for="signup-name">name</label>
+      <input id="signup-name" autocapitalize="words">
+    </div>
+    <div class="login-input">
+      <label for="signup-username">username</label>
+      <input id="signup-username" autocomplete="new-username">
+    </div>
+    <div class="login-input">
+      <label for="signup-password">password</label>
+      <input id="signup-password" autocomplete="new-password" type="password">
+    </div>
+    <button type="submit">create account</button>
+  </form>
 </section>
 
 <!-- Library JS & our JS -->
